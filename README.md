@@ -56,7 +56,7 @@ Fine-tune a 0.6B parameter LLM to classify customer support tickets into 12 inte
 | Base Model | [Qwen/Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B) |
 | Fine-tuning | SFT via HuggingFace Training Jobs |
 | Adapter | LoRA (PEFT) |
-| Dataset | [bitext/customer-support-llm-chatbot-training-dataset](https://huggingface.co/datasets/bitext/customer-support-llm-chatbot-training-dataset) |
+| Dataset | [bitext/Bitext-customer-support-llm-chatbot-training-dataset](https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset) |
 | Inference | FastAPI + Uvicorn |
 | Training Cost | **$0.37** |
 
@@ -66,10 +66,11 @@ Fine-tune a 0.6B parameter LLM to classify customer support tickets into 12 inte
 finetuning-llm-huggingface/
 ├── README.md                 # This file
 ├── training_config.py        # All hyperparameters and config
+├── train_job.py              # Submit fine-tuning to HuggingFace Space
 ├── evaluate.py               # Evaluation script (base & fine-tuned)
 ├── inference_server.py       # FastAPI inference server
 ├── demo.py                   # Demo: compare base vs fine-tuned
-├── TRAINING_PROMPT.md        # Prompt for HF model trainer
+├── TRAINING_PROMPT.md        # Prompt for HF model trainer skill
 ├── HF_MCP_SETUP.md           # HuggingFace MCP setup guide
 ├── requirements.txt          # Python dependencies
 ├── setup.sh                  # Setup script
@@ -102,7 +103,16 @@ bash setup.sh
 
 ### Training
 
-Follow `TRAINING_PROMPT.md` — paste the prompt into Claude Code with the HuggingFace model trainer skill. See `HF_MCP_SETUP.md` for detailed setup instructions.
+**Option A: Auto-submit via script (recommended)**
+```bash
+# Prepares dataset + creates HuggingFace training Space
+python train_job.py
+
+# Then add HF_TOKEN secret in Space settings and select GPU hardware
+```
+
+**Option B: Via Claude Code + HF model trainer skill**
+Follow `TRAINING_PROMPT.md` — paste the prompt into Claude Code. See `HF_MCP_SETUP.md` for setup.
 
 **Cost: ~$0.37** on HuggingFace GPU cloud.
 

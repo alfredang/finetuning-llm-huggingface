@@ -4,7 +4,7 @@ Paste this into Claude Code / Codex with the HuggingFace model trainer skill:
 
 ---
 
-Fine-tune Qwen/Qwen3-0.6B into a customer support ticket router using bitext/customer-support-llm-chatbot-training-dataset.
+Fine-tune Qwen/Qwen3-0.6B into a customer support ticket router using bitext/Bitext-customer-support-llm-chatbot-training-dataset.
 
 Task definition:
 - Input column: instruction

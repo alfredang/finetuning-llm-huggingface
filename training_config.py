@@ -7,7 +7,7 @@ MODEL_ID = "Qwen/Qwen3-0.6B"
 FINETUNED_MODEL_ID = "tertiaryinfotech/qwen3-0.6b-ticket-router"
 
 # Dataset
-DATASET_NAME = "bitext/customer-support-llm-chatbot-training-dataset"
+DATASET_NAME = "bitext/Bitext-customer-support-llm-chatbot-training-dataset"
 TEXT_COLUMN = "instruction"
 LABEL_COLUMN = "intent"
 
